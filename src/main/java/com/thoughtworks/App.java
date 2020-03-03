@@ -65,7 +65,7 @@ public class App {
     public static List<Trader> getCambridgeTraders(List<Transaction> transactions) {
         return transactions.stream()
                 .filter((transaction -> transaction.getTrader().getCity().equals("Cambridge")))
-                .sorted(Comparator.comparing((Transaction t) -> t.getTrader().getName()))
+                .sorted(Comparator.comparing(transaction -> transaction.getTrader().getName()))
                 .map(Transaction::getTrader)
                 .distinct()
                 .collect(Collectors.toList());
